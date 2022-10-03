@@ -23,13 +23,13 @@ class Settings(BaseSettings):
         "http://localhost:3000",
         "http://localhost:8001",  # type: ignore
         "https://master--marvelous-tarsier-ce8cf2.netlify.app"
-        "art@62.84.120.87:8001",
+        "62.84.120.87",
     ]
 
     # Origins that match this regex OR are in the above list are allowed
     BACKEND_CORS_ORIGIN_REGEX: Optional[
         str
-    ] = "https.*\.(netlify.app|herokuapp.com)"  # noqa: W605
+    ] = "https*.netlify.app"  # noqa: W605
 
     @validator("BACKEND_CORS_ORIGINS", pre=True)
     def assemble_cors_origins(cls, v: Union[str, List[str]]) -> Union[List[str], str]:
