@@ -10,8 +10,8 @@ class User(Base):
     surname = Column(String(256), nullable=True)
     email = Column(String, index=True, nullable=False)
     is_superuser = Column(Boolean, default=False)
-    recipes = relationship(
-        "Recipe",
+    tasks = relationship(
+        "Task",
         cascade="all,delete-orphan",
         back_populates="submitter",
         uselist=True,

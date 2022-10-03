@@ -15,7 +15,7 @@ BASE_PATH = Path(__file__).resolve().parent
 TEMPLATES = Jinja2Templates(directory=str(BASE_PATH / "templates"))
 
 root_router = APIRouter()
-app = FastAPI(title="Recipe API", openapi_url=f"{settings.API_V1_STR}/openapi.json")
+app = FastAPI(title="Task API", openapi_url=f"{settings.API_V1_STR}/openapi.json")
 
 # Set all CORS enabled origins
 if settings.BACKEND_CORS_ORIGINS:
@@ -37,10 +37,10 @@ def root(
     """
     Root GET
     """
-    recipes = crud.recipe.get_multi(db=db, limit=10)
+    tasks = crud.task.get_multi(db=db, limit=10)
     return TEMPLATES.TemplateResponse(
         "index.html",
-        {"request": request, "recipes": recipes},
+        {"request": request, "tasks": tasks},
     )
 
 
@@ -61,4 +61,4 @@ if __name__ == "__main__":
     # Use this for debugging purposes only
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=8001, log_level="debug")
+    uvicorn.run(app, host="127.0.0.1", port=8001, log_level="debug")

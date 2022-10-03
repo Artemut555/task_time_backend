@@ -14,19 +14,19 @@ RECIPES = [
         "id": 1,
         "label": "Chicken Vesuvio",
         "source": "Serious Eats",
-        "url": "http://www.seriouseats.com/recipes/2011/12/chicken-vesuvio-recipe.html",
+        "url": "http://www.seriouseats.com/tasks/2011/12/chicken-vesuvio-task.html",
     },
     {
         "id": 2,
         "label": "Chicken Paprikash",
-        "source": "No Recipes",
-        "url": "http://norecipes.com/recipe/chicken-paprikash/",
+        "source": "No Tasks",
+        "url": "http://notasks.com/task/chicken-paprikash/",
     },
     {
         "id": 3,
-        "label": "Cauliflower and Tofu Curry Recipe",
+        "label": "Cauliflower and Tofu Curry Task",
         "source": "Serious Eats",
-        "url": "http://www.seriouseats.com/recipes/2011/02/cauliflower-and-tofu-curry-recipe.html",  # noqa
+        "url": "http://www.seriouseats.com/tasks/2011/02/cauliflower-and-tofu-curry-task.html",  # noqa
     },
 ]
 
@@ -56,17 +56,17 @@ def init_db(db: Session) -> None:
                 "Skipping creating superuser. User with email "
                 f"{settings.FIRST_SUPERUSER} already exists. "
             )
-        if not user.recipes:
-            for recipe in RECIPES:
+        if not user.tasks:
+            for task in RECIPES:
                 # time = datetime.datetime.now()
-                recipe_in = schemas.RecipeCreate(
-                    label=recipe["label"],
-                    source=recipe["source"],
-                    url=recipe["url"],
+                task_in = schemas.TaskCreate(
+                    label=task["label"],
+                    source=task["source"],
+                    url=task["url"],
                     time=datetime.datetime.now(),
                     submitter_id=user.id,
                 )
-                crud.recipe.create(db, obj_in=recipe_in)
+                crud.task.create(db, obj_in=task_in)
     else:
         logger.warning(
             "Skipping creating superuser.  FIRST_SUPERUSER needs to be "

@@ -38,7 +38,7 @@ class Settings(BaseSettings):
         raise ValueError(v)
 
     SQLALCHEMY_DATABASE_URI: Optional[str] = "sqlite:///example.db"
-    FIRST_SUPERUSER: EmailStr = "admin@recipeapi.com"
+    FIRST_SUPERUSER: EmailStr = "admin@taskapi.com"
     FIRST_SUPERUSER_PW: str = "CHANGEME"
 
     class Config:

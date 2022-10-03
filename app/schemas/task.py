@@ -3,7 +3,7 @@ from datetime import datetime, date
 from typing import Sequence
 
 
-class RecipeBase(BaseModel):
+class TaskBase(BaseModel):
     label: str
     source: str
     url: HttpUrl
@@ -12,24 +12,24 @@ class RecipeBase(BaseModel):
     task_finished: int
 
 
-class RecipeCreate(BaseModel):
+class TaskCreate(BaseModel):
     label: str
     source: str
     url: HttpUrl
     submitter_id: int
 
 
-class RecipeUpdate(RecipeBase):
+class TaskUpdate(TaskBase):
     id: int
 
 
-class RecipeUpdateRestricted(BaseModel):
+class TaskUpdateRestricted(BaseModel):
     id: int
     type: int
 
 
 # Properties shared by models stored in DB
-class RecipeInDBBase(RecipeBase):
+class TaskInDBBase(TaskBase):
     id: int
     submitter_id: int
 
@@ -38,14 +38,14 @@ class RecipeInDBBase(RecipeBase):
 
 
 # Properties to return to client
-class Recipe(RecipeInDBBase):
+class Task(TaskInDBBase):
     pass
 
 
 # Properties properties stored in DB
-class RecipeInDB(RecipeInDBBase):
+class TaskInDB(TaskInDBBase):
     pass
 
 
-class RecipeSearchResults(BaseModel):
-    results: Sequence[Recipe]
+class TaskSearchResults(BaseModel):
+    results: Sequence[Task]

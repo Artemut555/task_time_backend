@@ -17,7 +17,7 @@ class RedditClient:
     def __init__(self) -> None:
         self.session = Client()
         self.session.headers.update(
-            {"Content-Type": "application/json", "User-agent": "recipe bot 0.1"}
+            {"Content-Type": "application/json", "User-agent": "task bot 0.1"}
         )
 
     def _perform_request(  # type: ignore
@@ -44,9 +44,9 @@ class RedditClient:
         # If you get empty responses from the subreddit calls, set t=month instead.
         url = f"/r/{subreddit}/top.json?sort=top&t=week&limit={limit}"
         response = self._perform_request("get", url)
-        subreddit_recipes = response.json()
+        subreddit_tasks = response.json()
         subreddit_data = []
-        for entry in subreddit_recipes["data"]["children"]:
+        for entry in subreddit_tasks["data"]["children"]:
             score = entry["data"]["score"]
             title = entry["data"]["title"]
             link = entry["data"]["url"]
