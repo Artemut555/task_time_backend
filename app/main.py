@@ -60,5 +60,6 @@ app.include_router(root_router)
 if __name__ == "__main__":
     # Use this for debugging purposes only
     import uvicorn
+    print("HOSTING")
 
-    uvicorn.run(app, host="127.0.0.1", port=8001, log_level="debug")
+    uvicorn.run(app, host="62.84.120.87", port=8001, log_level="debug")
