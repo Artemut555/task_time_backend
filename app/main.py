@@ -62,4 +62,4 @@ if __name__ == "__main__":
     import uvicorn
     print("HOSTING")
 
-    uvicorn.run(app, host="62.84.120.87", port=8001, log_level="debug")
+    uvicorn.run(app, host="0.0.0.0", port=8001, log_level="debug")
