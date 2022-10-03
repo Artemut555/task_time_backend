@@ -23,7 +23,7 @@ class Settings(BaseSettings):
         "http://localhost:3000",
         "http://localhost:8001",  # type: ignore
         "https://master--marvelous-tarsier-ce8cf2.netlify.app"
-        "https://art@62.84.120.87:8001",
+        "art@62.84.120.87:8001",
     ]
 
     # Origins that match this regex OR are in the above list are allowed
