@@ -24,8 +24,8 @@ class Settings(BaseSettings):
         "http://localhost:8001",  # type: ignore
         "https://master--marvelous-tarsier-ce8cf2.netlify.app"
         "62.84.120.87",
-        "http://justworkplease.surge.sh/",
-        "https://justworkplease.surge.sh/",
+        "http://justworkplease.surge.sh",
+        "https://justworkplease.surge.sh",
     ]
 
     # Origins that match this regex OR are in the above list are allowed
